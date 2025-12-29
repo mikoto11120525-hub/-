@@ -191,6 +191,24 @@ image ed12:
 ##################################################################################################################
 
 label start:
+
+"你好"
+
+"無論你是誰，謝謝你願意點開我的作品"
+
+"這是一個關於選擇的遊戲"
+
+"你將左右一位少年的行動、思考，甚至是未來"
+
+"但……"
+
+"你或許並不會知道這些瑣碎的舉動意味著什麼"
+
+
+"……"
+
+jump l
+
 label l:
 
 $ qwq += 0
@@ -1064,6 +1082,7 @@ stop music fadeout 3.0
 show sakuma with dissolve
 s "……"
 
+stop sound fadeout 3.0
 show sakuma d with dissolve
 s "（最近狀況真的挺糟糕的……）"
 hide sakuma
@@ -1164,14 +1183,17 @@ menu:
             show bl02 with dissolve
             "血滴在木質的地板上散開"
 
+            play sound2 "audio/sound/血流.mp3"
             play sound "audio/sound/開槍.mp3"
             "接著是腹部"
 
+            show bl03 with dissolve
+            play sound2 "audio/sound/血流.mp3"
             play sound "audio/sound/開槍.mp3"
             "再來是手臂"
 
-            play sound "audio/sound/血流.mp3"
-            show bk02-1-1 with dissolve
+            play sound "audio/sound/血散.mp3"
+            show bl04 with dissolve
             "世界變得模糊，像是墨被水浸開"
 
             play sound "audio/sound/低地.mp3"
@@ -1195,6 +1217,7 @@ menu:
             "碰"
 
         "逃跑":
+            
             $ agg += 2
             play sound "audio/sound/按鍵音效.mp3"
             play music "audio/music/iwakan.mp3"
@@ -1223,23 +1246,26 @@ menu:
             play sound2 "audio/sound/抬腳.mp3"
             "我失去重心，向前撲倒"
 
+            scene bl1 with dissolve
             play sound "audio/sound/踩雪.mp3" 
             "趴在地上試圖撐起身子"
 
             play sound "audio/sound/腳步停下.mp3" 
-            scene bk01 with dissolve
             "但貓貓不知何時已經到達我身後"
-
+            
             play sound "audio/sound/開槍.mp3"
+            with vpunch
+            show bl2 with dissolve
+            play sound2 "audio/sound/血流.mp3"
             "第二槍打在手背"
 
             play sound2 "audio/sound/奏三.mp3"
-            show bk01-1 with dissolve
             "我失去一方的支撐"
 
             play sound "audio/sound/奏一.mp3"
             "垮下來一瞬間頭部用力的撞擊地面"
 
+            show bl5 with dissolve
             "世界變得再次模糊，只有血漬惹眼得過分"
 
             play sound "audio/sound/開槍.mp3"
@@ -1247,6 +1273,7 @@ menu:
 
             play sound "audio/sound/開槍.mp3"
             play sound2 "audio/sound/血流.mp3"
+            show bl3 with dissolve
             "但都不是能斃命的要害"
 
             "像在懲罰我的逃避行為"
@@ -1255,6 +1282,7 @@ menu:
             "痛覺感官漸漸變得遲鈍"
 
             play sound2 "audio/sound/耳鳴.mp3"
+            show bl4 with dissolve
             "只有一股空洞的殘響在耳朵裡嗡嗡作聲"
 
             scene black with dissolve
@@ -2362,6 +2390,19 @@ stop music fadeout 3.0
 scene black with dissolve
 centered "GOOD END - 和解"
 scene black with dissolve
+
+pause 4.0
+
+"……"
+
+"你做了和平的決定"
+
+"但……"
+
+"當你得知事情的全貌後"
+
+"你真的願意原諒貓貓嗎？"
+
 return
 
 ##################################################################################################################
@@ -2483,6 +2524,17 @@ stop music fadeout 3.0
 scene black with dissolve
 centered "BED END - 死循"
 scene black with dissolve
+
+pause 4.0
+
+"……"
+
+"你做了保守的決定"
+
+"是因為理解所以冷漠，還是純粹逃避？"
+
+"亦或是…不明不白的走回了這裡？"
+
 return
 
 ##################################################################################################################
@@ -2569,6 +2621,7 @@ play sound2 "audio/sound/放東西到桌上.mp3"
 play sound "audio/sound/開門.mp3"
 scene black with dissolve
 "然後，推門，關門，出門"
+
 pause 3.0
 
 #####################################
@@ -2616,6 +2669,22 @@ stop music fadeout 3.0
 
 scene black with dissolve
 centered "GOOD END - 離家"
+
+pause 4.0
+
+"……"
+
+"你做了大膽的決定"
+
+"是意外促成呢？還是預料之中？"
+
+"這場不知盡頭為何處的逃亡是你不能決定的未知數"
+
+"甚至連動機，也不明不白對吧？"
+
+"你會願意傾聽嗎？"
+
+"還是就像他一樣，選擇逃避了槍口，以及內心……"
 
 return
 
@@ -3051,7 +3120,22 @@ stop music fadeout 3.0
 
 centered "GOOD END - 依賴"
 
+pause 4.0
+
+"……"
+
+"你做了安全的決定"
+
+"緊抓令人安心的存在"
+
+"但……"
+
+"那個存在真的是安定的嗎？"
+
+"或許包括他自身的任何人都存在認知偏差"
+
 return
+
 ##################################################################################################################
 ##################################################################################################################
 #play sound "audio/sound/.mp3"
@@ -3247,7 +3331,22 @@ stop music fadeout 3.0
 scene black with dissolve
 centered "待續(還在思考劇情WWW)"
 
+pause 4.0
+
+"……"
+
+"你做了詭異的決定"
+
+"這是偏執的開始"
+
+"毋庸置疑"
+
+"呵呵……"
+
+"是否發現了其中的違和？"
+
 return
+
 ##################################################################################################################
 ##################################################################################################################
 
@@ -3755,7 +3854,7 @@ s "……"
 with vpunch
 play sound "audio/sound/搧巴掌.mp3"
 
-"視線開始模糊，我狠狠刪了自己一巴掌"
+"視線開始模糊，我狠狠搧了自己一巴掌"
 
 show bk03-1 with dissolve
 "但只醒了一瞬間"
@@ -3807,6 +3906,21 @@ scene black with dissolve
 "扣動了扳機"
 
 centered "BAD END - 自傷"
+
+pause 4.0
+
+"……"
+
+"你做了可悲的決定"
+
+"為結局感到錯愕嗎？"
+
+"又或是在過程中早已察覺到了？"
+
+"這是你所期望的嗎？"
+
+"還是一連串的意外促成？"
+
 return
 
 ##################################################################################################################
@@ -3915,6 +4029,20 @@ stop music fadeout 3.0
 
 scene black with dissolve
 centered "BAD END - 報復"
+
+pause 4.0
+
+"……"
+
+"你做了衝動的決定"
+
+"荒謬啊荒謬……"
+
+"或許…我們應該稱呼別人身上的悲劇為喜劇"
+
+"積壓已久的憎恨潰堤、對於加害者施出暴力的那一刻……"
+
+"是你所期望的嗎？"
 
 return
 ##################################################################################################################
